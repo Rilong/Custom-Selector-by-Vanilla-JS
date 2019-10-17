@@ -29,3 +29,114 @@
   padding: 0;
   margin-bottom: 1rem;
 }
+
+#select {
+  width: 370px;
+}
+
+.selector {
+
+}
+
+.selector .input_container {
+  position: relative;
+}
+
+.selector .input_container * {
+  cursor: pointer;
+}
+
+.selector .input_container input {
+  width: 100%;
+  padding: 13px 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #777777;
+  font-size: 1rem;
+  transition: border-bottom-color .3s ease;
+}
+
+.selector .input_container input:hover {
+  border-bottom-color: #000;
+}
+
+.selector .input_container label {
+  position: absolute;
+  display: block;
+  max-width: 90%;
+  top: 27%;
+  left: 0;
+  transition: transform .3s ease, font-size .3s ease, color .3s ease;
+}
+
+.selector.focused .input_container label {
+  transform: translateY(-150%) translateX(10px);
+  font-size: 0.7rem;
+  color: #777777;
+}
+
+.selector.active .input_container label {
+  color: #1976D2;
+}
+
+.selector .input_container::after {
+  content: 'arrow_drop_down';
+  position: absolute;
+  top: calc(50% - 1px);
+  transform: translateY(-50%);
+  right: 0;
+
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  transform-origin: center 6px;
+  transition: transform .3s ease;
+}
+
+.selector.open .input_container::after {
+  transform: rotate(180deg);
+}
+
+.selector .dropdown_select {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-top: 10px;
+  list-style: none;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, .2);
+  /*border-radius: 3px;*/
+  cursor: pointer;
+  transition: transform .3s ease;
+  transform: scale(0);
+}
+
+.selector.open .dropdown_select {
+  transform: scale(1);
+}
+
+.selector.cleared .dropdown_select {
+  opacity: 0;
+}
+
+.selector .dropdown_select .dropdown_item {
+  padding: 10px 20px;
+  transition: background-color .3s ease;
+}
+
+.selector .dropdown_select .dropdown_item.active {
+  color: #1976D2;
+}
+
+.selector .dropdown_select .dropdown_item:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
