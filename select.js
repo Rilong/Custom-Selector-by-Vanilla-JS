@@ -139,7 +139,7 @@ class Select {
       const li = document.createElement('li')
       li.classList.add('dropdown_item')
       li.dataset.item = index
-      li.innerText = item.label
+      li.innerText = item.title
       this.li.push(li)
       this.dropdownContainer.appendChild(li)
     })
@@ -194,10 +194,7 @@ class Select {
     const response = await fetch(this.options.url)
     const data = await response.json()
     this.label.innerText = this.options.label
-    this.data = Object.keys(data).map((key) => {
-      data[key].id = key
-      return data[key]
-    })
+    this.data = data
     this._createSelector(this.data)
     this._fillDropdown(this.data)
     this.render()

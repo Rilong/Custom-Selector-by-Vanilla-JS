@@ -10,11 +10,11 @@ let selected = null
 
 const select = new Select({
   selector: '#select',
-  label: 'Выберите технологию',
-  url: 'https://vladilen-dev.firebaseio.com/technologies.json',
+  label: 'Выберите',
+  url: 'https://jsonplaceholder.typicode.com/users/1/todos?_limit=5',
   onSelect(selectedItem) {
     selected = selectedItem
-    log.innerText = `Selected item: ${selectedItem.label}`
+    log.innerText = `Selected item: ${selectedItem.title}`
   }
 })
 
